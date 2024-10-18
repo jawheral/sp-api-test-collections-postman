@@ -1,0 +1,730 @@
+{
+	"info": {
+		"_postman_id": "18758eec-6858-423e-9e04-935b9cae29c2",
+		"name": "Selling Partner API for Finance - generated",
+		"description": "The Selling Partner API for Finances provides financial information relevant to a seller's business. You can obtain financial events for a given order or date range without having to wait until a statement period closes.\n\nContact Support:\n Name: Selling Partner API Developer Support",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "36203337-18758eec-6858-423e-9e04-935b9cae29c2"
+	},
+	"item": [
+		{
+			"name": "finances",
+			"item": [
+				{
+					"name": "2024-06-19",
+					"item": [
+						{
+							"name": "transactions",
+							"item": [
+								{
+									"name": "list Transactions",
+									"id": "cff00805-777c-44df-b1f1-66abed5b0e34",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"finances",
+												"2024-06-19",
+												"transactions"
+											],
+											"query": [
+												{
+													"key": "postedAfter",
+													"value": "<dateTime>",
+													"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request."
+												},
+												{
+													"key": "postedBefore",
+													"value": "<dateTime>",
+													"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request."
+												},
+												{
+													"key": "marketplaceId",
+													"value": "<string>",
+													"description": "The ID of the marketplace from which you want to retrieve transactions."
+												},
+												{
+													"key": "nextToken",
+													"value": "<string>",
+													"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages."
+												}
+											]
+										},
+										"description": "Returns transactions for the given parameters. Orders from the last 48 hours might not be included in financial events.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 10 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits)."
+									},
+									"response": [
+										{
+											"id": "70c741da-10c1-4793-b8fa-030606145110",
+											"name": "Success.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "42c69783-c206-428c-8f66-454e55b29762"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Your rate limit (requests per second) for this operation.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RateLimit-Limit",
+													"value": "<string>",
+													"uuid": "2bdb0bc2-6ac6-4d2f-88de-8a6ec989a146"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "d774ffec-3264-4ae4-8f10-a13d46a14a80"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"nextToken\": \"<string>\",\n  \"transactions\": [\n    {\n      \"sellingPartnerMetadata\": {\n        \"sellingPartnerId\": \"<string>\",\n        \"accountType\": \"<string>\",\n        \"marketplaceId\": \"<string>\"\n      },\n      \"relatedIdentifiers\": [\n        {\n          \"relatedIdentifierName\": \"EVENT_GROUP_ID\",\n          \"relatedIdentifierValue\": \"<string>\"\n        },\n        {\n          \"relatedIdentifierName\": \"TRANSFER_ID\",\n          \"relatedIdentifierValue\": \"<string>\"\n        }\n      ],\n      \"transactionType\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"transactionStatus\": \"<string>\",\n      \"description\": \"<string>\",\n      \"postedDate\": \"<dateTime>\",\n      \"totalAmount\": {\n        \"currencyCode\": \"<string>\",\n        \"currencyAmount\": \"<number>\"\n      },\n      \"marketplaceDetails\": {\n        \"marketplaceId\": \"<string>\",\n        \"marketplaceName\": \"<string>\"\n      },\n      \"items\": [\n        {\n          \"description\": \"<string>\",\n          \"relatedIdentifiers\": [\n            {\n              \"itemRelatedIdentifierName\": \"COUPON_ID\",\n              \"itemRelatedIdentifierValue\": \"<string>\"\n            },\n            {\n              \"itemRelatedIdentifierName\": \"COUPON_ID\",\n              \"itemRelatedIdentifierValue\": \"<string>\"\n            }\n          ],\n          \"totalAmount\": {\n            \"currencyCode\": \"<string>\",\n            \"currencyAmount\": \"<number>\"\n          },\n          \"breakdowns\": [\n            {\n              \"breakdownType\": \"<string>\",\n              \"breakdownAmount\": {\n                \"currencyCode\": \"<string>\",\n                \"currencyAmount\": \"<number>\"\n              },\n              \"breakdowns\": {\n                \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n              }\n            },\n            {\n              \"breakdownType\": \"<string>\",\n              \"breakdownAmount\": {\n                \"currencyCode\": \"<string>\",\n                \"currencyAmount\": \"<number>\"\n              },\n              \"breakdowns\": {\n                \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n              }\n            }\n          ],\n          \"contexts\": [\n            {\n              \"contextType\": \"<string>\",\n              \"storeName\": \"<string>\",\n              \"orderType\": \"<string>\",\n              \"channel\": \"<string>\",\n              \"asin\": \"<string>\",\n              \"sku\": \"<string>\",\n              \"quantityShipped\": \"<integer>\",\n              \"fulfillmentNetwork\": \"<string>\",\n              \"paymentType\": \"<string>\",\n              \"paymentMethod\": \"<string>\",\n              \"paymentReference\": \"<string>\",\n              \"paymentDate\": \"<dateTime>\",\n              \"deferralReason\": \"<string>\",\n              \"maturityDate\": \"<dateTime>\",\n              \"deferralStatus\": \"<string>\",\n              \"startTime\": \"<dateTime>\",\n              \"endTime\": \"<dateTime>\"\n            },\n            {\n              \"contextType\": \"<string>\",\n              \"storeName\": \"<string>\",\n              \"orderType\": \"<string>\",\n              \"channel\": \"<string>\",\n              \"asin\": \"<string>\",\n              \"sku\": \"<string>\",\n              \"quantityShipped\": \"<integer>\",\n              \"fulfillmentNetwork\": \"<string>\",\n              \"paymentType\": \"<string>\",\n              \"paymentMethod\": \"<string>\",\n              \"paymentReference\": \"<string>\",\n              \"paymentDate\": \"<dateTime>\",\n              \"deferralReason\": \"<string>\",\n              \"maturityDate\": \"<dateTime>\",\n              \"deferralStatus\": \"<string>\",\n              \"startTime\": \"<dateTime>\",\n              \"endTime\": \"<dateTime>\"\n            }\n          ]\n        },\n        {\n          \"description\": \"<string>\",\n          \"relatedIdentifiers\": [\n            {\n              \"itemRelatedIdentifierName\": \"REMOVAL_SHIPMENT_ITEM_ID\",\n              \"itemRelatedIdentifierValue\": \"<string>\"\n            },\n            {\n              \"itemRelatedIdentifierName\": \"COUPON_ID\",\n              \"itemRelatedIdentifierValue\": \"<string>\"\n            }\n          ],\n          \"totalAmount\": {\n            \"currencyCode\": \"<string>\",\n            \"currencyAmount\": \"<number>\"\n          },\n          \"breakdowns\": [\n            {\n              \"breakdownType\": \"<string>\",\n              \"breakdownAmount\": {\n                \"currencyCode\": \"<string>\",\n                \"currencyAmount\": \"<number>\"\n              },\n              \"breakdowns\": {\n                \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n              }\n            },\n            {\n              \"breakdownType\": \"<string>\",\n              \"breakdownAmount\": {\n                \"currencyCode\": \"<string>\",\n                \"currencyAmount\": \"<number>\"\n              },\n              \"breakdowns\": {\n                \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n              }\n            }\n          ],\n          \"contexts\": [\n            {\n              \"contextType\": \"<string>\",\n              \"storeName\": \"<string>\",\n              \"orderType\": \"<string>\",\n              \"channel\": \"<string>\",\n              \"asin\": \"<string>\",\n              \"sku\": \"<string>\",\n              \"quantityShipped\": \"<integer>\",\n              \"fulfillmentNetwork\": \"<string>\",\n              \"paymentType\": \"<string>\",\n              \"paymentMethod\": \"<string>\",\n              \"paymentReference\": \"<string>\",\n              \"paymentDate\": \"<dateTime>\",\n              \"deferralReason\": \"<string>\",\n              \"maturityDate\": \"<dateTime>\",\n              \"deferralStatus\": \"<string>\",\n              \"startTime\": \"<dateTime>\",\n              \"endTime\": \"<dateTime>\"\n            },\n            {\n              \"contextType\": \"<string>\",\n              \"storeName\": \"<string>\",\n              \"orderType\": \"<string>\",\n              \"channel\": \"<string>\",\n              \"asin\": \"<string>\",\n              \"sku\": \"<string>\",\n              \"quantityShipped\": \"<integer>\",\n              \"fulfillmentNetwork\": \"<string>\",\n              \"paymentType\": \"<string>\",\n              \"paymentMethod\": \"<string>\",\n              \"paymentReference\": \"<string>\",\n              \"paymentDate\": \"<dateTime>\",\n              \"deferralReason\": \"<string>\",\n              \"maturityDate\": \"<dateTime>\",\n              \"deferralStatus\": \"<string>\",\n              \"startTime\": \"<dateTime>\",\n              \"endTime\": \"<dateTime>\"\n            }\n          ]\n        }\n      ],\n      \"contexts\": [\n        {\n          \"contextType\": \"<string>\",\n          \"storeName\": \"<string>\",\n          \"orderType\": \"<string>\",\n          \"channel\": \"<string>\",\n          \"asin\": \"<string>\",\n          \"sku\": \"<string>\",\n          \"quantityShipped\": \"<integer>\",\n          \"fulfillmentNetwork\": \"<string>\",\n          \"paymentType\": \"<string>\",\n          \"paymentMethod\": \"<string>\",\n          \"paymentReference\": \"<string>\",\n          \"paymentDate\": \"<dateTime>\",\n          \"deferralReason\": \"<string>\",\n          \"maturityDate\": \"<dateTime>\",\n          \"deferralStatus\": \"<string>\",\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\"\n        },\n        {\n          \"contextType\": \"<string>\",\n          \"storeName\": \"<string>\",\n          \"orderType\": \"<string>\",\n          \"channel\": \"<string>\",\n          \"asin\": \"<string>\",\n          \"sku\": \"<string>\",\n          \"quantityShipped\": \"<integer>\",\n          \"fulfillmentNetwork\": \"<string>\",\n          \"paymentType\": \"<string>\",\n          \"paymentMethod\": \"<string>\",\n          \"paymentReference\": \"<string>\",\n          \"paymentDate\": \"<dateTime>\",\n          \"deferralReason\": \"<string>\",\n          \"maturityDate\": \"<dateTime>\",\n          \"deferralStatus\": \"<string>\",\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\"\n        }\n      ],\n      \"breakdowns\": [\n        {\n          \"breakdownType\": \"<string>\",\n          \"breakdownAmount\": {\n            \"currencyCode\": \"<string>\",\n            \"currencyAmount\": \"<number>\"\n          },\n          \"breakdowns\": {\n            \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n          }\n        },\n        {\n          \"breakdownType\": \"<string>\",\n          \"breakdownAmount\": {\n            \"currencyCode\": \"<string>\",\n            \"currencyAmount\": \"<number>\"\n          },\n          \"breakdowns\": {\n            \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n          }\n        }\n      ]\n    },\n    {\n      \"sellingPartnerMetadata\": {\n        \"sellingPartnerId\": \"<string>\",\n        \"accountType\": \"<string>\",\n        \"marketplaceId\": \"<string>\"\n      },\n      \"relatedIdentifiers\": [\n        {\n          \"relatedIdentifierName\": \"TRANSFER_ID\",\n          \"relatedIdentifierValue\": \"<string>\"\n        },\n        {\n          \"relatedIdentifierName\": \"TRANSFER_ID\",\n          \"relatedIdentifierValue\": \"<string>\"\n        }\n      ],\n      \"transactionType\": \"<string>\",\n      \"transactionId\": \"<string>\",\n      \"transactionStatus\": \"<string>\",\n      \"description\": \"<string>\",\n      \"postedDate\": \"<dateTime>\",\n      \"totalAmount\": {\n        \"currencyCode\": \"<string>\",\n        \"currencyAmount\": \"<number>\"\n      },\n      \"marketplaceDetails\": {\n        \"marketplaceId\": \"<string>\",\n        \"marketplaceName\": \"<string>\"\n      },\n      \"items\": [\n        {\n          \"description\": \"<string>\",\n          \"relatedIdentifiers\": [\n            {\n              \"itemRelatedIdentifierName\": \"COUPON_ID\",\n              \"itemRelatedIdentifierValue\": \"<string>\"\n            },\n            {\n              \"itemRelatedIdentifierName\": \"ORDER_ADJUSTMENT_ITEM_ID\",\n              \"itemRelatedIdentifierValue\": \"<string>\"\n            }\n          ],\n          \"totalAmount\": {\n            \"currencyCode\": \"<string>\",\n            \"currencyAmount\": \"<number>\"\n          },\n          \"breakdowns\": [\n            {\n              \"breakdownType\": \"<string>\",\n              \"breakdownAmount\": {\n                \"currencyCode\": \"<string>\",\n                \"currencyAmount\": \"<number>\"\n              },\n              \"breakdowns\": {\n                \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n              }\n            },\n            {\n              \"breakdownType\": \"<string>\",\n              \"breakdownAmount\": {\n                \"currencyCode\": \"<string>\",\n                \"currencyAmount\": \"<number>\"\n              },\n              \"breakdowns\": {\n                \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n              }\n            }\n          ],\n          \"contexts\": [\n            {\n              \"contextType\": \"<string>\",\n              \"storeName\": \"<string>\",\n              \"orderType\": \"<string>\",\n              \"channel\": \"<string>\",\n              \"asin\": \"<string>\",\n              \"sku\": \"<string>\",\n              \"quantityShipped\": \"<integer>\",\n              \"fulfillmentNetwork\": \"<string>\",\n              \"paymentType\": \"<string>\",\n              \"paymentMethod\": \"<string>\",\n              \"paymentReference\": \"<string>\",\n              \"paymentDate\": \"<dateTime>\",\n              \"deferralReason\": \"<string>\",\n              \"maturityDate\": \"<dateTime>\",\n              \"deferralStatus\": \"<string>\",\n              \"startTime\": \"<dateTime>\",\n              \"endTime\": \"<dateTime>\"\n            },\n            {\n              \"contextType\": \"<string>\",\n              \"storeName\": \"<string>\",\n              \"orderType\": \"<string>\",\n              \"channel\": \"<string>\",\n              \"asin\": \"<string>\",\n              \"sku\": \"<string>\",\n              \"quantityShipped\": \"<integer>\",\n              \"fulfillmentNetwork\": \"<string>\",\n              \"paymentType\": \"<string>\",\n              \"paymentMethod\": \"<string>\",\n              \"paymentReference\": \"<string>\",\n              \"paymentDate\": \"<dateTime>\",\n              \"deferralReason\": \"<string>\",\n              \"maturityDate\": \"<dateTime>\",\n              \"deferralStatus\": \"<string>\",\n              \"startTime\": \"<dateTime>\",\n              \"endTime\": \"<dateTime>\"\n            }\n          ]\n        },\n        {\n          \"description\": \"<string>\",\n          \"relatedIdentifiers\": [\n            {\n              \"itemRelatedIdentifierName\": \"ORDER_ADJUSTMENT_ITEM_ID\",\n              \"itemRelatedIdentifierValue\": \"<string>\"\n            },\n            {\n              \"itemRelatedIdentifierName\": \"ORDER_ADJUSTMENT_ITEM_ID\",\n              \"itemRelatedIdentifierValue\": \"<string>\"\n            }\n          ],\n          \"totalAmount\": {\n            \"currencyCode\": \"<string>\",\n            \"currencyAmount\": \"<number>\"\n          },\n          \"breakdowns\": [\n            {\n              \"breakdownType\": \"<string>\",\n              \"breakdownAmount\": {\n                \"currencyCode\": \"<string>\",\n                \"currencyAmount\": \"<number>\"\n              },\n              \"breakdowns\": {\n                \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n              }\n            },\n            {\n              \"breakdownType\": \"<string>\",\n              \"breakdownAmount\": {\n                \"currencyCode\": \"<string>\",\n                \"currencyAmount\": \"<number>\"\n              },\n              \"breakdowns\": {\n                \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n              }\n            }\n          ],\n          \"contexts\": [\n            {\n              \"contextType\": \"<string>\",\n              \"storeName\": \"<string>\",\n              \"orderType\": \"<string>\",\n              \"channel\": \"<string>\",\n              \"asin\": \"<string>\",\n              \"sku\": \"<string>\",\n              \"quantityShipped\": \"<integer>\",\n              \"fulfillmentNetwork\": \"<string>\",\n              \"paymentType\": \"<string>\",\n              \"paymentMethod\": \"<string>\",\n              \"paymentReference\": \"<string>\",\n              \"paymentDate\": \"<dateTime>\",\n              \"deferralReason\": \"<string>\",\n              \"maturityDate\": \"<dateTime>\",\n              \"deferralStatus\": \"<string>\",\n              \"startTime\": \"<dateTime>\",\n              \"endTime\": \"<dateTime>\"\n            },\n            {\n              \"contextType\": \"<string>\",\n              \"storeName\": \"<string>\",\n              \"orderType\": \"<string>\",\n              \"channel\": \"<string>\",\n              \"asin\": \"<string>\",\n              \"sku\": \"<string>\",\n              \"quantityShipped\": \"<integer>\",\n              \"fulfillmentNetwork\": \"<string>\",\n              \"paymentType\": \"<string>\",\n              \"paymentMethod\": \"<string>\",\n              \"paymentReference\": \"<string>\",\n              \"paymentDate\": \"<dateTime>\",\n              \"deferralReason\": \"<string>\",\n              \"maturityDate\": \"<dateTime>\",\n              \"deferralStatus\": \"<string>\",\n              \"startTime\": \"<dateTime>\",\n              \"endTime\": \"<dateTime>\"\n            }\n          ]\n        }\n      ],\n      \"contexts\": [\n        {\n          \"contextType\": \"<string>\",\n          \"storeName\": \"<string>\",\n          \"orderType\": \"<string>\",\n          \"channel\": \"<string>\",\n          \"asin\": \"<string>\",\n          \"sku\": \"<string>\",\n          \"quantityShipped\": \"<integer>\",\n          \"fulfillmentNetwork\": \"<string>\",\n          \"paymentType\": \"<string>\",\n          \"paymentMethod\": \"<string>\",\n          \"paymentReference\": \"<string>\",\n          \"paymentDate\": \"<dateTime>\",\n          \"deferralReason\": \"<string>\",\n          \"maturityDate\": \"<dateTime>\",\n          \"deferralStatus\": \"<string>\",\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\"\n        },\n        {\n          \"contextType\": \"<string>\",\n          \"storeName\": \"<string>\",\n          \"orderType\": \"<string>\",\n          \"channel\": \"<string>\",\n          \"asin\": \"<string>\",\n          \"sku\": \"<string>\",\n          \"quantityShipped\": \"<integer>\",\n          \"fulfillmentNetwork\": \"<string>\",\n          \"paymentType\": \"<string>\",\n          \"paymentMethod\": \"<string>\",\n          \"paymentReference\": \"<string>\",\n          \"paymentDate\": \"<dateTime>\",\n          \"deferralReason\": \"<string>\",\n          \"maturityDate\": \"<dateTime>\",\n          \"deferralStatus\": \"<string>\",\n          \"startTime\": \"<dateTime>\",\n          \"endTime\": \"<dateTime>\"\n        }\n      ],\n      \"breakdowns\": [\n        {\n          \"breakdownType\": \"<string>\",\n          \"breakdownAmount\": {\n            \"currencyCode\": \"<string>\",\n            \"currencyAmount\": \"<number>\"\n          },\n          \"breakdowns\": {\n            \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n          }\n        },\n        {\n          \"breakdownType\": \"<string>\",\n          \"breakdownAmount\": {\n            \"currencyCode\": \"<string>\",\n            \"currencyAmount\": \"<number>\"\n          },\n          \"breakdowns\": {\n            \"value\": \"<Circular reference to #/components/schemas/Breakdown detected>\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+										},
+										{
+											"id": "40da3c71-5c37-48ee-ab2e-2de84bac4646",
+											"name": "Request has missing or invalid parameters and cannot be parsed.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "5beda39e-d1ff-4971-bf4a-5a556d1f3f4e"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Your rate limit (requests per second) for this operation.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RateLimit-Limit",
+													"value": "<string>",
+													"uuid": "98419b57-6d8e-43e8-b77b-85baf05ebc60"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "d2975038-85bf-496f-b6b0-353b197dcd57"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "7264a8b1-389a-4531-95b9-60abb229b12b",
+											"name": "Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "ae682824-a100-4fc7-97e4-98364cb63648"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "c5667f68-9bec-4e2d-ac48-863db4a21b31"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "34c937b0-90e3-4405-a85c-b5e704931890",
+											"name": "The resource specified does not exist.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "98148d56-0e68-4486-971f-8c0d4f9cf873"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Your rate limit (requests per second) for this operation.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RateLimit-Limit",
+													"value": "<string>",
+													"uuid": "51324cce-971f-4585-ba2b-0885d90a9fc6"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "7501d368-04ba-4e3d-81d2-ba6e017f3291"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "ef6c81bc-ac34-4848-a962-f0dd554ca297",
+											"name": "The request size exceeded the maximum accepted size.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Request Entity Too Large",
+											"code": 413,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "d0963eeb-5591-49c6-98e4-55520c800f0d"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "dcdaf8ec-1ca7-4c05-9c48-01368d6568e8"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "41e53942-a162-4923-9ad3-f451a67339c9",
+											"name": "The request payload is in an unsupported format.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Unsupported Media Type",
+											"code": 415,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "8b95b749-e257-4604-b40b-a2f35f407534"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "2ea3cdf3-454e-4a48-9add-9645ce1aee37"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "c360d661-1438-406e-9d98-6902dbc619fb",
+											"name": "The frequency of requests was greater than allowed.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Too Many Requests",
+											"code": 429,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "22ac0cb5-c193-409f-81b0-9ec2213a3c28"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "c1c3080c-886c-4e20-a3b5-86f5106c0ab6"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "fd403bd2-1f9d-4a13-8416-3b1a7df4c775",
+											"name": "An unexpected condition occurred that prevented the server from fulfilling the request.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "f72cdd59-82f6-4116-b233-e4e0db38b5d6"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "2dfa0acd-51f3-4ca1-820d-8eb9fa2c0fbd"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"id": "8cab4167-c501-4044-a5d4-dbd61b91b055",
+											"name": "Temporary overloading or maintenance of the server.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/finances/2024-06-19/transactions?postedAfter=<dateTime>&postedBefore=<dateTime>&marketplaceId=<string>&nextToken=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"finances",
+														"2024-06-19",
+														"transactions"
+													],
+													"query": [
+														{
+															"description": "(Required) The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+															"key": "postedAfter",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.\n\n**Default:** Two minutes before the time of the request.",
+															"key": "postedBefore",
+															"value": "<dateTime>"
+														},
+														{
+															"description": "The ID of the marketplace from which you want to retrieve transactions.",
+															"key": "marketplaceId",
+															"value": "<string>"
+														},
+														{
+															"description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+															"key": "nextToken",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Service Unavailable",
+											"code": 503,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"uuid": "36de8251-9bda-4f17-b93a-24713f847e93"
+												},
+												{
+													"disabled": false,
+													"description": {
+														"content": "Unique request reference identifier.",
+														"type": "text/plain"
+													},
+													"key": "x-amzn-RequestId",
+													"value": "<string>",
+													"uuid": "3b915a71-2d60-4e65-bfb6-68d26ebab69e"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"errors\": [\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							],
+							"id": "aa1d5118-b6f9-4362-879f-cbc5f92a44df"
+						}
+					],
+					"id": "bf1621a1-c466-4e20-a432-41ab36ba5ca5"
+				}
+			],
+			"id": "4bcf9228-9f22-4e01-9578-4dca2efedca7"
+		}
+	],
+	"variable": [
+		{
+			"id": "91cbc87d-1e49-4056-b5b9-0aae850f646b",
+			"key": "baseUrl",
+			"value": "https://sellingpartnerapi-na.amazon.com"
+		}
+	]
+}
