@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "The Selling Partner API for Finances provides financial information relevant to a seller's business. You can obtain financial events for a given order or date range without having to wait until a statement period closes.",
+    "description": "(TEST2) The Selling Partner API for Finances provides financial information relevant to a seller's business. You can obtain financial events for a given order or date range without having to wait until a statement period closes.",
     "version": "2024-06-19",
     "title": "The Selling Partner API for Finances",
     "contact": {
