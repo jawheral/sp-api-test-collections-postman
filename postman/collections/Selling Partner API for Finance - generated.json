@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "18758eec-6858-423e-9e04-935b9cae29c2",
 		"name": "Selling Partner API for Finance - generated",
-		"description": "(TEST) The Selling Partner API for Finances provides financial information relevant to a seller's business. You can obtain financial events for a given order or date range without having to wait until a statement period closes.\n\nContact Support:\n Name: Selling Partner API Developer Support",
+		"description": "(TEST) The Selling Partner API for Finances provides financial information relevant to a seller's business. You can obtain financial events for a given order or date range without having to wait until a statement period closes.\n\nContact Support:  \nName: Selling Partner API Developer Support",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_uid": "36203337-18758eec-6858-423e-9e04-935b9cae29c2"
 	},
